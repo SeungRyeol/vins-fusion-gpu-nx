@@ -1,5 +1,5 @@
-# vins-fusion-gpu-tx2-nano
-Installation step of vins-fusion gpu version on Nvidia Jetson TX2 and Jetson Nano ( JP 4.2.2)
+# vins-fusion-gpu-nx
+Installation step of vins-fusion gpu version on Nvidia Jetson Xavier NX ( JP 4.4.1)
 # Prerequisites
 
 
