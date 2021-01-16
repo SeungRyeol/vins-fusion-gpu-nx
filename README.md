@@ -7,11 +7,11 @@ Installation step of vins-fusion gpu version on Nvidia Jetson TX2 and Jetson Nan
 ```
 #  Remove pre-built Eigen
 
-sudo apt-get remove libeigen3-dev 
+sudo apt purge libeigen3-dev 
 cd ~/Downloads/
-wget -O eigen.zip http://bitbucket.org/eigen/eigen/get/3.3.7.zip #check version
+wget -O eigen.zip https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.zip
 unzip eigen.zip -d eigen-3.3.7
-mkdir eigen-build && cd eigen-build
+cd eigen-3.3.7 && mkdir eigen-build && cd eigen-build
 cmake ../eigen-3.3.7/ && sudo make install
 pkg-config --modversion eigen3 # Check Eigen Version
 ```
@@ -20,16 +20,16 @@ pkg-config --modversion eigen3 # Check Eigen Version
 ### Ceres solver 
 ```
 cd ~/Downloads/
-sudo apt-get install -y cmake libgoogle-glog-dev libatlas-base-dev libsuitesparse-dev
+sudo apt install -y cmake libgoogle-glog-dev libatlas-base-dev libsuitesparse-dev
 wget http://ceres-solver.org/ceres-solver-1.14.0.tar.gz
 tar zxf ceres-solver-1.14.0.tar.gz
 mkdir ceres-bin
 mkdir solver && cd ceres-bin
 cmake ../ceres-solver-1.14.0 -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX="../solver" 
 
-  #good for build without being root privileged and at wanted directory
+#good for build without being root privileged and at wanted directory
   
-make -j3 # 6 : number of cores
+make -j6 : # number of cores
 make test
 make install
 bin/simple_bundle_adjuster ../ceres-solver-1.14.0/data/problem-16-22106-pre.txt # to check version
@@ -39,9 +39,9 @@ bin/simple_bundle_adjuster ../ceres-solver-1.14.0/data/problem-16-22106-pre.txt 
 ## Opencv
 ```
 # remove prebuilt opencv
-sudo apt-get purge libopencv* python-opencv 
-sudo apt-get update
-sudo apt-get install -y build-essential pkg-config
+sudo apt purge libopencv* python-opencv 
+sudo apt update
+sudo apt install -y build-essential pkg-config
 
 ## libeigen3-dev # recommend to build from source
 
@@ -61,7 +61,7 @@ cd /usr/lib/aarch64-linux-gnu/
 sudo ln -sf libGL.so.1.0.0 libGL.so
 sudo vim /usr/local/cuda/include/cuda_gl_interop.h
 
-# Comment (line #62~68) of cuda_gl_interop.h 
+# Comment (line #61~67) of cuda_gl_interop.h 
 
 //#if defined(__arm__) || defined(__aarch64__)
 //#ifndef GL_VERSION
