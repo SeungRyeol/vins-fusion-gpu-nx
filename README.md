@@ -271,6 +271,7 @@ rosrun kalibr kalibr_calibrate_cameras --bag /home/shin/kalibr/stereo_calibra_d4
 
 or
 
+if Error: Cameras are not connected through mutual observations, .....
 rosrun kalibr kalibr_calibrate_cameras --bag /home/shin/kalibr/stereo_calibra_d435i.bag --topics /left /right --models pinhole-equi pinhole-equi --target /home/shin/kalibr/april_6x6_80x80cm.yaml --show-extraction --approx-sync 0.04
 
 ```
