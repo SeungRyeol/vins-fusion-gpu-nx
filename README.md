@@ -2,6 +2,14 @@
 Installation step of vins-fusion gpu version on Nvidia Jetson Xavier NX ( JP 4.4.1)
 # Prerequisites
 
+### ● USB performance : Have to improve performance of sensors with USB
+  + For Xavier : [here](https://devtalk.nvidia.com/default/topic/1049581/jetson-agx-xavier/change-usbcore-usbfs_memory_mb/)
+  ~~~shell
+  $ sudo sh -c 'echo 1000 > /sys/module/usbcore/parameters/usbfs_memory_mb'
+  $ sudo ./flash.sh -k kernel -C "usbcore.usbfs_memory_mb=1000" -k kernel-dtb jetson-xavier mmcblk0p1
+  ~~~
+<br>
+
 
 ### Eigen 
 ```
