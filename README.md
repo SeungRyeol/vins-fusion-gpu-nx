@@ -25,7 +25,7 @@ pkg-config --modversion eigen3 # Check Eigen Version
 ```
 ![Eigen-img](./img/md1.png)
 
-### Ceres solver 
+### Ceres solver (only Eigen version 3.3.7)
 ```
 cd ~/Downloads/
 sudo apt install -y cmake libgoogle-glog-dev libatlas-base-dev libsuitesparse-dev
